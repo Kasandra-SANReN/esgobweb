@@ -1,4 +1,8 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+ <?php
 /*
 Copyright (C) 2015  Volker Janzen
 
@@ -16,16 +20,25 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
-require_once('config.inc.php');
-require_once('proxy.inc.php');
-
-
+//require_once('config.inc.php');
+//include('config.inc.php');
+include('proxy.inc.php');
 include('header.inc.php');
+include('connection.php');
+
+$id= $_SESSION["Id"]; 
 
 if (isset($_GET['submitBtn']) && isset($_GET['domain']) && isset($_GET['masterip'])) {
 	$domain = $_GET['domain'];
 	$masterip = $_GET['masterip'];
 
+        	mysqli_query( $Conn, "INSERT INTO dnsentries (`domain`,`masterip`,`owner_id`)
+                          VALUES('$domain','$masterip','$id')") or die($dberror3);
+            echo "DNS entry has been added!";
+         //   mysqli_query( $Conn, "INSERT INTO slaveslist (`Owner_id`)
+         //                 VALUES('$id')") or die($dberror3);
+         //   echo "Owner id updated";
+            
 	$data = simple_get('domains.slaves.add', $domain, $masterip);
 
 	if (!is_object($data)) {
@@ -78,6 +91,6 @@ if (isset($_GET['submitBtn']) && isset($_GET['domain']) && isset($_GET['masterip
 <?php
 }
 
-include('footer.inc.php');
+//include('footer.inc.php');
 
 ?>

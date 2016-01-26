@@ -1,29 +1,10 @@
 # esgobweb
 
-Web client for the DNS API of [Esgob Ltd.](https://www.esgob.com/). The company provides a [Free Secondary DNS](https://noc.esgob.com/secondary_dns) service. esgobweg can be used as a web interface for their API. You need an account with Esgob in order to use esgobweb.
-
-## System requirements
-
-esgobweb requires a webserver with capability of running PHP 5.4 (or later) and curl. For Debian based Linux distributions make sure the php5-curl package is installed.
-
-## Installation
-
-Please follow these steps to get a working installation of esgobweb.
-
-### Extract archive
-
-Extract the esgobweb archive into a folder of your web server where you want to access it.
-
-### Security considerations
-
-I recommend allowing access to esgobweb only via SSL, but this is not mandatory. There is currently no authentication mechanism in esgobweb, so please make sure you use your webservers password authentication or IP restrictions to prevent unauthorized access to your zones.
+Adapted Web client for the DNS API of [Esgob Ltd.](https://www.esgob.com/) for use at the South African National Research Network. Esgob provides a [Free Secondary DNS](https://noc.esgob.com/secondary_dns) service. This version of esgobweb can be used as a web interface for their API and allows multiple users at an institution to use the same esgob account as it has a database to maintain users ids. You need an account with Esgob in order to use esgobweb.
 
 ### Install Bootstrap
 
-esgobweb requires Bootstrap. Download [the latest version of Bootstrap 3](http://getbootstrap.com/getting-started/#download) into the folder you extracted esgobweb. Then extract it and create a symlink to make it usable for esgobweb:
-
-`unzip bootstrap-3.XXX-dist.zip`
-`ln -s bootstrap-3.XXX-dist dist`
+esgobweb requires Bootstrap. Download [the latest version of Bootstrap 3](http://getbootstrap.com/getting-started/#download) into the folder you extracted esgobweb. 
 
 ### Configure API key and user name
 
@@ -36,3 +17,8 @@ esgobweb can display flags for the country of the anycast nodes. You need to ins
 You can download e.g. [243 Country Flag Icons](http://365icon.com/icon-styles/ethnic/classic2/) and extract the content into the esgob folder. Set the config.inc.php apropriate:
 
 `define('FLAG_FOLDER', 'flags/flags_iso/24/');`
+
+###
+The database used is mysqli. Three tables are used. The database name is names dnsdatabase. The three tables are dnsentries:dnsent_id, domain,masterip, owner_id
+people:owner_id, Name, Institution, password
+slaveslist: Slavelist_id, Domain, Type, Masterip, Action

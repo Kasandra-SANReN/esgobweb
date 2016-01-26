@@ -1,4 +1,7 @@
+<link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+
 <?php
+
 /*
 Copyright (C) 2015  Volker Janzen
 
@@ -16,10 +19,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
-require_once('config.inc.php');
+//require_once('config.inc.php');
 require_once('proxy.inc.php');
-
-
+include ('connection.php');
 include('header.inc.php');
 
 $domain = '';
@@ -34,6 +36,8 @@ if (isset($_GET['masterip'])) {
 
 if (isset($_GET['submitBtn']) && $domain != '' && $masterip != '') {
 	$data = simple_get('domains.slaves.updatemasterip', $domain, $masterip);
+        
+        mysqli_query($Conn, "UPDATE `dnsentries` SET `masterip` = '$masterip' WHERE `dnsentries`.`domain` = '$domain'");
 
 	if (!is_object($data)) {
 		echo('<div class="alert alert-danger" role="alert">Webservice call did not return response</div>');
@@ -87,5 +91,5 @@ if (isset($_GET['submitBtn']) && $domain != '' && $masterip != '') {
 	
 }
 
-include('footer.inc.php');
+//include('footer.inc.php');
 ?>

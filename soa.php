@@ -1,4 +1,5 @@
-<?php
+<link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <?php
 /*
 Copyright (C) 2015  Volker Janzen
 
@@ -16,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
-require_once('config.inc.php');
+//require_once('config.inc.php');
 require_once('proxy.inc.php');
 
 
@@ -157,5 +158,5 @@ if ($domain == '') {
 	echo('</table>');
 }
 
-include('footer.inc.php');
+//include('footer.inc.php');
 ?>

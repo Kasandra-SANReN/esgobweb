@@ -1,5 +1,12 @@
+<pre>
 <?php
-/*
+
+session_start();
+
+echo "You are logged as " . $_SESSION["Name"] . ".<br>";
+
+
+    /*
 Copyright (C) 2015  Volker Janzen
 
 This program is free software: you can redistribute it and/or modify
@@ -15,8 +22,15 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
-?><!DOCTYPE html>
+?>
+<a href="users_1.php">Logout</a>
+</pre>
+
+
+
+<!DOCTYPE html>
 <html lang="en">
+    
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,8 +39,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
     <title>Esgob client</title>
 
     <!-- Bootstrap -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+ <!--   <link href="localhost/esgobweb-master/bootstrap-3.3.5-dist/js/bootstrap.min.css" rel="stylesheet"> 
 
+ 
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -36,16 +55,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
   </head>
   <body>
 	<div class="container">
+            <br><br>
+             <img src="sanrenlogo.png" alt='Sanren logo'  style="width:200px;height:68px;">
+             <img src="tenetlogo.png" alt='Tenet logo'  style="width:200px;height:68px;" align="right"> 
+             <br><br>
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<a class="navbar-brand" href="index.php">Esgob client</a>
+                                         
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li><a href="new_slave.php">New slave</a></li>
 						<li><a href="list_slaves.php">Slave zones</a></li>
+                                                <li><a href="del_slave.php">Delete slave zones</a></li>
+                                                <li><a href="configuration.php">Configuration</a></li>
+                                                
 					</ul>
+                                 
+                                        
+                                    
 				</div>
+                                
 			</div>
 		</nav>
+
+            
+            
